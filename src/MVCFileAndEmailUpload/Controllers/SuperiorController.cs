@@ -106,6 +106,7 @@ namespace MVCFileAndEmailUpload.Controllers
         }
         public IActionResult Show()
         {
+            ViewBag["show"] = "Sajid ali";
             return View();
         }
 
