@@ -1,0 +1,76 @@
+@model MVCFileAndEmailUpload.Models.Tblstudent
+
+@{
+    ViewData["Title"] = "FileUpload";
+}
+<h3 class="alert alert-success text-center" >File Uploading EMAIL & SMS Sending</h3>
+
+@if (ViewBag.message != "null" && ViewBag.message != "")
+{
+    <h4 class="alert-success">@ViewBag.message</h4>
+}
+<form asp-action="FileUpload" asp-controller="Superior" method="post" enctype="multipart/form-data">
+    <div class="form-horizontal">
+      
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="FirstName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RollNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RollNumber" class="form-control" />
+                <span asp-validation-for="RollNumber" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Email" type="email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Picture" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Picture" type="file" id="pp" name="pp" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
